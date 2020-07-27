@@ -1,14 +1,35 @@
 
 <div *ngIf="book; else nothing">
-  <div>
-    <button class="btn btn-primary mt-3" [routerLink]="['']">
-      Xem danh sách
-    </button>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-10">
+       <h3><strong>Chi tiết sách</strong></h3>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary mt-3" [routerLink]="['']" style="width: 116px">
+         Danh sách
+        </button>
+      </div>
+    </div>
+    <table class="table table-bordered mt-2">
+      <thead>
+      <tr>
+        <tr>
+        <th scope="col">Title</th>
+        <td>{{ book.title }}</td>
+      </tr>
+      <tr>
+      <tr>
+        <th scope="col">Author</th>
+        <td>{{ book.author }}</td>
+      </tr>
+      <tr>
+        <th scope="col">Description</th>
+        <td>{{ book.description }}</td>
+      </tr>
+      </thead>
+    </table>
   </div>
-  <h3>Chi tiết sách</h3>
-  <h3>{{ book.title }}</h3>
-  <p>{{ book.author }}</p>
-  <p>{{ book.description }}</p>
 </div>
 
 <ng-template #nothing></ng-template>
