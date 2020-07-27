@@ -1,0 +1,43 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <div *ngIf="message" class="alert alert-success">
+      {{ message }}
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        Book List
+      </div>
+
+    </div>
+
+  </div>
+  <div class="card-body">
+    <a class="btn btn-success" [routerLink]="['book/add']">Create</a>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of bookList; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td><a [routerLink]="['book/detail', book.id]">{{ book.title }}</a></td>
+        <td>{{ book.author }}</td>
+        <td>
+          <a [routerLink]="['book/edit', book.id]">
+            <i class="fa fa-edit" style="color: blue"></i>
+          </a>
+          <a class="link" routerLink="" (click)="deleteProduct(i)">
+            <i class="fa fa-trash ml-2" style="color: red"></i>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,14 @@
+
+<div *ngIf="book; else nothing">
+  <div>
+    <button class="btn btn-primary mt-3" [routerLink]="['']">
+      Xem danh sách
+    </button>
+  </div>
+  <h3>Chi tiết sách</h3>
+  <h3>{{ book.title }}</h3>
+  <p>{{ book.author }}</p>
+  <p>{{ book.description }}</p>
+</div>
+
+<ng-template #nothing></ng-template>

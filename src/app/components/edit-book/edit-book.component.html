@@ -1,0 +1,66 @@
+<div class="card mt-3">
+  <div class="card-header">
+    Edit book
+  </div>
+  <div class="card-body">
+    <form [formGroup]="formEdit" (ngSubmit)="onSubmit()">
+      <div class="form-group" style="width: 100%">
+        <label>
+          <strong>Title</strong>
+        </label>
+        <input type="text" class="form-control" placeholder="Enter title" formControlName="title">
+      </div>
+      <div *ngIf="title.invalid && (title.dirty || title.touched)"
+           class="alert alert-danger">
+        <div *ngIf="title.errors.required">
+          Bạn chưa nhập tiêu đề sách!
+        </div>
+        <div *ngIf="title.errors.minlength">
+          Tiêu đề sách tối thiểu là 2 ký tự!
+        </div>
+        <div *ngIf="title.errors.maxlength">
+          Tiêu đề quá dài!
+        </div>
+      </div>
+
+      <div class="form-group" style="width: 100%">
+        <label>
+          <strong>Author</strong>
+        </label>
+        <input type="text" class="form-control" placeholder="Enter author" formControlName="author">
+      </div>
+      <div *ngIf="author.invalid && (author.dirty || author.touched)" class="alert alert-danger">
+        <div *ngIf="author.errors.required">
+          Bạn chưa nhập tên tác giả!
+        </div>
+        <div *ngIf="author.errors.minlength">
+          Tên tác giả tối thiểu là 2 ký tự!
+        </div>
+        <div *ngIf="author.errors.maxlength">
+          Tên tác giả quá dài!
+        </div>
+      </div>
+      <div class="form-group" style="width: 100%">
+        <label><strong>Description</strong></label>
+        <textarea class="form-control" formControlName="description" required></textarea>
+        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+          <div *ngIf="description.errors.required">
+            Bạn chưa nhập mô tả!
+          </div>
+          <div *ngIf="description.errors.minlength">
+            Mô tả tối thiểu là 2 ký tự!
+          </div>
+          <div *ngIf="description.errors.maxlength">category
+            Mô tả quá dài!
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-success" type="submit" [disabled]="formEdit.invalid">Edit</button>
+        <button class="btn btn-secondary ml-2" [routerLink]="['']">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
